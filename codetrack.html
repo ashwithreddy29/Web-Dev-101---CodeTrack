@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeTrack | Practice. Track. Improve.</title>
+    <link rel="stylesheet" href="codetrack.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <a class="logo" href="#dashboard">Code<span>Track</span></a>
+
+            <ul class="nav-links">
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#problems">Problems</a></li>
+                <li><a href="#add-problem">Add Problem</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="dashboard">
+            <div class="hero-content">
+                <p class="eyebrow">CODING PRACTICE TRACKER</p>
+                <h1>Practice. Track. <span>Improve.</span></h1>
+                <p class="hero-text">
+                    Keep all your coding practice in one place. Track problems from
+                    LeetCode, CodeChef, Codeforces, HackerRank, Scaler and more.
+                </p>
+                <a class="primary-btn" href="#add-problem">+ Add New Problem</a>
+            </div>
+
+            <div class="hero-card">
+                <div class="hero-icon">&lt;/&gt;</div>
+                <h3>Build consistency</h3>
+                <p>One problem at a time.</p>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">YOUR PROGRESS</p>
+                    <h2>Dashboard</h2>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <article class="stat-card">
+                    <p>Total Problems</p>
+                    <h3 id="totalProblems">0</h3>
+                </article>
+
+                <article class="stat-card">
+                    <p>Solved</p>
+                    <h3 id="solvedProblems">0</h3>
+                </article>
+
+                <article class="stat-card">
+                    <p>Pending</p>
+                    <h3 id="pendingProblems">0</h3>
+                </article>
+
+                <article class="stat-card">
+                    <p>Easy</p>
+                    <h3 id="easyProblems">0</h3>
+                </article>
+
+                <article class="stat-card">
+                    <p>Medium</p>
+                    <h3 id="mediumProblems">0</h3>
+                </article>
+
+                <article class="stat-card">
+                    <p>Hard</p>
+                    <h3 id="hardProblems">0</h3>
+                </article>
+            </div>
+        </section>
+
+        <section class="add-section" id="add-problem">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">NEW ENTRY</p>
+                    <h2>Add a Coding Problem</h2>
+                </div>
+                <p class="section-description">
+                    Add the problem you are working on and update its status later.
+                </p>
+            </div>
+
+            <form id="problemForm" class="problem-form">
+                <div class="form-group form-wide">
+                    <label for="problemName">Problem Name</label>
+                    <input
+                        type="text"
+                        id="problemName"
+                        placeholder="Example: Two Sum"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="platform">Platform</label>
+                    <select id="platform" required>
+                        <option value="">Select platform</option>
+                        <option value="LeetCode">LeetCode</option>
+                        <option value="CodeChef">CodeChef</option>
+                        <option value="Codeforces">Codeforces</option>
+                        <option value="HackerRank">HackerRank</option>
+                        <option value="Scaler">Scaler</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="difficulty">Difficulty</label>
+                    <select id="difficulty" required>
+                        <option value="">Select difficulty</option>
+                        <option value="Easy">Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select id="status" required>
+                        <option value="">Select status</option>
+                        <option value="Solved">Solved</option>
+                        <option value="Pending">Pending</option>
+                    </select>
+                </div>
+
+                <div class="form-group form-button">
+                    <button type="submit" class="primary-btn button-element">
+                        Add Problem
+                    </button>
+                </div>
+            </form>
+
+            <p id="formMessage" class="form-message"></p>
+        </section>
+
+        <section class="problems-section" id="problems">
+            <div class="section-heading problems-heading">
+                <div>
+                    <p class="eyebrow">PRACTICE LOG</p>
+                    <h2>Your Problems</h2>
+                </div>
+
+                <div class="filters">
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Search problem..."
+                    >
+
+                    <select id="difficultyFilter">
+                        <option value="All">All Difficulties</option>
+                        <option value="Easy">Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                    </select>
+
+                    <select id="statusFilter">
+                        <option value="All">All Status</option>
+                        <option value="Solved">Solved</option>
+                        <option value="Pending">Pending</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="problemContainer" class="problem-grid"></div>
+
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon">&lt;/&gt;</div>
+                <h3>No problems yet</h3>
+                <p>Add your first coding problem and start tracking your progress.</p>
+                <a href="#add-problem">Add your first problem</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div>
+            <h3>Code<span>Track</span></h3>
+            <p>Practice. Track. Improve.</p>
+        </div>
+        <p class="footer-note">Built with HTML, CSS and JavaScript.</p>
+    </footer>
+
+    <script src="codetrack.js"></script>
+</body>
+</html>
